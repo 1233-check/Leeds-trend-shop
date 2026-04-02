@@ -658,14 +658,18 @@
     });
 
     /* ====== HERO SPLIT REVEAL ====== */
-    gsap.to('#hero-left', {
-      xPercent: -100, ease: 'none',
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
+    const heroTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: '+=150%',
+        scrub: 1,
+        pin: true,
+        anticipatePin: 1
+      }
     });
-    gsap.to('#hero-right', {
-      xPercent: 100, ease: 'none',
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
-    });
+    heroTl.to('#hero-left', { xPercent: -100, ease: 'none' }, 0)
+          .to('#hero-right', { xPercent: 100, ease: 'none' }, 0);
 
     /* ====== REVEAL ON SCROLL ====== */
     document.querySelectorAll('.reveal').forEach(el => {
