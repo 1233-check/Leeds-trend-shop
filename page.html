@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Information — Leeds Trend Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',system-ui,sans-serif; background:#0a0a0a; color:#f5f0eb; -webkit-font-smoothing:antialiased; }
+    .header { position: sticky; top:0; padding: 1.5rem 2rem; background:rgba(15,20,25,0.4); backdrop-filter:blur(16px); border-bottom:1px solid rgba(255,255,255,0.08); z-index: 100; }
+    .header a { font-family: 'Outfit', sans-serif; font-weight: 800; color: #c8a44e; text-decoration: none; font-size: 1.25rem; letter-spacing: 0.12em; }
+    .container { max-width: 800px; margin: 6rem auto; padding: 0 2rem; }
+    h1 { font-family:'Outfit',sans-serif; font-size: 3rem; margin-bottom: 2rem; }
+    .content-box { background:rgba(25, 28, 32, 0.4); backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.08); padding: 3rem; border-radius: 16px; line-height: 1.8; opacity: 0.8; }
+    h2 { font-family:'Outfit',sans-serif; margin: 2rem 0 1rem; color: #c8a44e; font-size: 1.5rem; }
+    ul { margin-left: 1.5rem; margin-bottom: 1.5rem; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <a href="index.html">LEEDS TREND SHOP</a>
+  </div>
+  <div class="container">
+    <h1 id="page-title">Information</h1>
+    <div class="content-box" id="page-content">
+      <p>This is a placeholder page for dynamic legal, shipping, and policy content.</p>
+      <h2>Standard Delivery</h2>
+      <p>Deliveries are shipped securely with our trusted courier network within 2-4 business days.</p>
+      <h2>Returns</h2>
+      <p>We accept returns within 30 days of the dispatch date for all unworn items returned in exceptional condition with original tags attached.</p>
+    </div>
+  </div>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const type = urlParams.get('type');
+    if(type === 'shipping') { document.title = "Shipping & Returns"; document.getElementById('page-title').textContent = "Shipping & Returns"; }
+    else if(type === 'terms') { document.title = "Terms & Conditions"; document.getElementById('page-title').textContent = "Terms & Conditions"; }
+    else if(type === 'privacy') { document.title = "Privacy Policy"; document.getElementById('page-title').textContent = "Privacy Policy"; }
+    else if(type === 'contact') { document.title = "Contact Us"; document.getElementById('page-title').textContent = "Contact Us"; }
+  </script>
+</body>
+</html>
